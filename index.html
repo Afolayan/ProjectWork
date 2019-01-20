@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language='javascript'>
+            function call(name) {
+              var xhr = new XMLHttpRequest();
+              xhr.open('GET', name, true);
+              xhr.send();
+            }
+    </script>
+</head>
+<body>
+        <a onclick="call('takeoff');">Takeoff</a>
+        <a onclick="call('land');">Land</a>
+</body>
+</html>
