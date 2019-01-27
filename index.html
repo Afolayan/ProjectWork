@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script language='javascript'>
-            function call(name) {
-              var xhr = new XMLHttpRequest();
-              xhr.open('GET', name, true);
-              xhr.send();
-            }
-    </script>
-</head>
-<body>
-        <a onclick="call('takeoff');">Takeoff</a>
-        <a onclick="call('land');">Land</a>
-</body>
-</html>
+<html>
+        <script language='javascript'>
+        function call(name) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', name, true);
+          xhr.send();
+        }
+        </script>
+        <body>
+        <table border=1>
+        <tr>
+            <td>
+                <table cellpadding="4">
+                <tr>
+                  <td align="center">
+                      <a onclick="call('takeoff');"><button height=70 Width=70 >Takeoff</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                      <a onclick="call('land');"><button height=70 Width=70>Land</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                      <a onclick="call('photos');"><button height=70 Width=70>Photos</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                      <a onclick="call('calibrate');"><button height=60 Width=70>Calibrate</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                      <a onclick="call('hover');"><button height=70 Width=70>Hover</button></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                      <a onclick="call('clockwise');"><button height=70 Width=70>Clockwise</button></a>
+                  </td>
+                </tr>
+                </table>
+             </td>
+        </tr>
+        </table>
+        </div>
+        </body>
+        </html>

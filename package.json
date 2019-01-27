@@ -18,12 +18,13 @@
   "dependencies": {
     "ar-drone": "^0.3.3",
     "express": "^4.16.4",
+    "ffmpeg": "0.0.4",
     "nodemon": "^1.14.11"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/Afolayan/ProjectWork.git"
+    "url": "git+https://github.com/Afolayan/ProjectWork.git"
   },
   "bugs": {
     "url": "https://github.com/Afolayan/ProjectWork/issues"
