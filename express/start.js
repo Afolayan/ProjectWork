@@ -6,11 +6,9 @@ var arDrone = require('ar-drone');
 var client = arDrone.createClient();
 var pngStream = client.getPngStream();
 
-
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname+'/index.html'));
     //configure all initialization stuff here
-
     pngStream
     .on('error', console.log)
     .on('data', function(pngBuffer) {

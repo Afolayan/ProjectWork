@@ -7,6 +7,8 @@ require('ffmpeg')
 var client = arDrone.createClient();
 var pngStream = client.getPngStream();
 var fs = require('fs');
+const mongo = require('mongodb').MongoClient
+const url = 'mongodb://localhost:27017'
 
 app.use(express.static('public'));
 
@@ -23,6 +25,17 @@ app.get('/', function (req, res) {
     //     });
 
 
+    mongo.connect(url, (err, client) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+        //...
+      })
+    const db = client.db('drone_data')
+    const collection = db.collection('dogs')
+
+    
     client.config('general:navdata_demo', 'TRUE');
     client.config('general:navdata_options', 777060865);
     client.on('navdata', function (navdata) {
