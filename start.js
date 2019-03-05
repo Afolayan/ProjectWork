@@ -9,6 +9,8 @@ var pngStream = client.getPngStream();
 var fs = require('fs');
 const mongo = require('mongodb').MongoClient
 const url = 'mongodb://localhost:27017'
+const db = client.db('drone_data')
+const collection = db.collection('ar-drone')
 
 app.use(express.static('public'));
 
@@ -32,15 +34,24 @@ app.get('/', function (req, res) {
         }
         //...
       })
-    const db = client.db('drone_data')
-    const collection = db.collection('dogs')
-
-    
     client.config('general:navdata_demo', 'TRUE');
     client.config('general:navdata_options', 777060865);
     client.on('navdata', function (navdata) {
-        try {
+    try {
+
+        var period = 5000; // Save navdata every 5s.
+        var lastFrameTime = 0;
+        var now = (new Date()).getTime();
+        if (now - lastFrameTime > period) {
+           lastFrameTime = now;
+
             console.log(navdata.gps);
+            collection.insertOne({name: 'DataAt'+lastFrameTime, 
+                    data: navdata, timestamp: lastFrameTime}, (err, result) => {
+                        console.log(err);
+            })
+
+        }
             //console.log(navdata.gps.latitude+", "+navdata.gps.longitude);
         } catch (error) {
             console.log(error.message);
