@@ -133,6 +133,24 @@ app.get('/clockwise', function (req, res) {
 app.get('/view', function (req, res) {
     //res.send('This is the view page');
     res.sendFile(path.join(__dirname + '/viewPhotos.html'));
+    var fs = require('fs');
+
+
+    if (process.argv.length <= 2) {
+        console.log("Usage: " + __filename + " files");
+        process.exit(-1);
+    }
+
+    //var path = process.argv[2];
+    var path = "files";
+
+    fs.readdir(path, function(err, items) {
+        console.log(items);
+
+        for (var i=0; i<items.length; i++) {
+            console.log(items[i]);
+        }
+    });
 });
 
 
