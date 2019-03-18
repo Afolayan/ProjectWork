@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html>
-        <script language='javascript'>
-        function call(name) {
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', name, true);
-          xhr.send();
-        }
-        </script>
+  <head>
+      <script src="jquery-3.3.1.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script language='javascript'>
+          var folder = "/public/DroneImage/";
+  
+          $.ajax({
+              url : folder,
+              dataType: 'native',
+              success: function (data) {
+                console.log("view page");
+                  $(data).find("a").attr("href", function (i, val) {
+                      if( val.match(/\.(jpe?g|png|gif)$/) ) { 
+                          $("body").append( "<img src='"+ folder + val +"'>" );
+                      } 
+                  });
+              },
+              error: function(err){
+                console.log("view page");
+              }
+
+          });
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+            }
+          };
+          //xhttp.open("GET", "cd_catalog.xml", true);
+          xhttp.send();
+          </script>
+  </head>
+        
         <body>
+           <a></a>
         <table border=1>
+         
         <tr>
             <td>
                 <table cellpadding="4">
@@ -46,9 +75,6 @@
              </td>
         </tr>
         </table>
-
-        <a href="viewPhotos.html">View Photos</a>
-
         </div>
         </body>
         </html>

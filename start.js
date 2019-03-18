@@ -9,8 +9,8 @@ var pngStream = client.getPngStream();
 var fs = require('fs');
 const mongo = require('mongodb').MongoClient
 const url = 'mongodb://localhost:27017'
-const db = client.db('drone_data')
-const collection = db.collection('ar-drone')
+
+var db, collection;
 
 app.use(express.static('public'));
 
@@ -29,6 +29,9 @@ app.get('/', function (req, res) {
 
     mongo.connect(url, (err, client) => {
         if (err) {
+            db = client.db('drone_data')
+            //const collection = db.collection('ar-drone')
+            collection = db.createCollection('drone-flight')
           console.error(err)
           return
         }
@@ -67,6 +70,7 @@ app.get('/land', function (req, res) {
     client.stop(0)
     client.land();
     console.log("Drone Landing")
+    return "Drone landing ";
 });
 
 app.get('/takeoff', function (req, res) {
@@ -122,7 +126,13 @@ app.get('/clockwise', function (req, res) {
     client.clockwise(0.5);
     console.log("Drone Turning Clockwise");
 });
+
+app.get('/view', function (req, res) {
+    res.send('This is the view page');
+    res.sendFile(path.join(__dirname + '/view-photos.html'));
+});
+
 app.listen(port, function () {
-    console.log('Example app listening on port ${port}');
+    console.log(`Example app listening on port ${port}`);
 });
 
