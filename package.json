@@ -32,5 +32,13 @@
   "bugs": {
     "url": "https://github.com/Afolayan/ProjectWork/issues"
   },
-  "homepage": "https://github.com/Afolayan/ProjectWork"
+  "homepage": "https://github.com/Afolayan/ProjectWork",
+  "web_accessible_resources": [
+    "images/*.png",
+    "style/double-rainbow.css",
+    "script/double-rainbow.js",
+    "script/main.js",
+    "templates/*",
+    "files/*"
+  ]
 }

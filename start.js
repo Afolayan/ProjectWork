@@ -7,15 +7,15 @@ require('ffmpeg')
 var client = arDrone.createClient();
 var pngStream = client.getPngStream();
 var fs = require('fs');
-const mongo = require('mongodb').MongoClient
-const url = 'mongodb://localhost:27017'
+const mongo = require('mongodb').MongoClient;
+const url = 'mongodb://localhost:27017';
 
 var db, collection;
-
 app.use(express.static('public'));
+app.use(express.static('files'));
+app.use(express.static(__dirname + 'public'));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
     //configure all initialization stuff here
 
     // pngStream
@@ -60,6 +60,8 @@ app.get('/', function (req, res) {
             console.log(error.message);
         }
     });
+
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.get('/start', function (req, res) {
@@ -108,7 +110,7 @@ app.get('/photos', function (req, res) {
         var now = (new Date()).getTime();
         if (now - lastFrameTime > period) {
            lastFrameTime = now;
-           var image_url = '/public/DroneImage'+lastFrameTime+'.png';
+           var image_url = '/files/DroneImage'+lastFrameTime+'.png';
            fs.writeFile(__dirname + image_url, pngBuffer, function(err) {
            if (err) {
              console.log("Error saving PNG: " + err);
@@ -122,15 +124,17 @@ app.get('/photos', function (req, res) {
 
 // This router is sending a command to the drone 
 // to turn clockwise
+
 app.get('/clockwise', function (req, res) {
     client.clockwise(0.5);
     console.log("Drone Turning Clockwise");
 });
 
 app.get('/view', function (req, res) {
-    res.send('This is the view page');
-    res.sendFile(path.join(__dirname + '/view-photos.html'));
+    //res.send('This is the view page');
+    res.sendFile(path.join(__dirname + '/viewPhotos.html'));
 });
+
 
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}`);

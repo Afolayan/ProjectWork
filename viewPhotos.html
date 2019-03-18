@@ -1,80 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <script src="jquery-3.3.1.min.js"></script>
+      <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self' data: fonts.gstatic.com;">-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
       <script language='javascript'>
-          var folder = "/public/DroneImage/";
-  
-          $.ajax({
-              url : folder,
-              dataType: 'native',
-              success: function (data) {
-                console.log("view page");
-                  $(data).find("a").attr("href", function (i, val) {
-                      if( val.match(/\.(jpe?g|png|gif)$/) ) { 
-                          $("body").append( "<img src='"+ folder + val +"'>" );
-                      } 
-                  });
-              },
-              error: function(err){
-                console.log("view page");
-              }
 
-          });
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-            myFunction(this);
-            }
-          };
-          //xhttp.open("GET", "cd_catalog.xml", true);
-          xhttp.send();
+        $(document).ready(function() { 
+            console.log("Inside script");
+            
+            
+        });
+        
           </script>
   </head>
         
-        <body>
-           <a></a>
-        <table border=1>
-         
-        <tr>
-            <td>
-                <table cellpadding="4">
-                <tr>
-                  <td align="center">
-                      <a onclick="call('takeoff');"><button height=70 Width=70 >Takeoff</button></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                      <a onclick="call('land');"><button height=70 Width=70>Land</button></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                      <a onclick="call('photos');"><button height=70 Width=70>Photos</button></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                      <a onclick="call('calibrate');"><button height=60 Width=70>Calibrate</button></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                      <a onclick="call('hover');"><button height=70 Width=70>Hover</button></a>
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                      <a onclick="call('clockwise');"><button height=70 Width=70>Clockwise</button></a>
-                  </td>
-                </tr>
-                </table>
-             </td>
-        </tr>
-        </table>
-        </div>
-        </body>
-        </html>
+    <body>
+        <a></a>
+    <div>
+        <p id="display" name="display" class="display"></p>
+    </div>
+    </body>
+</html>
