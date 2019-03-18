@@ -143,14 +143,14 @@ app.get('/view', function (req, res) {
 
     //var path = process.argv[2];
     var path = "files";
-    var filenames = [];
+    var fileNames = [];
 
     fs.readdir(path, function(err, items) {
         console.log(items);
 
-        for (var i=0; i<items.length; i++) {
+        for (let i=0; i<items.length; i++) {
             console.log(items[i]);
-            filenames.add(i)
+            fileNames.add(i)
         }
     });
 });
