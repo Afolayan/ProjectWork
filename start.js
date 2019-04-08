@@ -142,7 +142,7 @@ app.get('/view', function (req, res) {
     }
 
     //var path = process.argv[2];
-    var path = "files";
+    var path = "/";
     var fileNames = [];
 
     fs.readdir(path, function(err, items) {
@@ -153,6 +153,7 @@ app.get('/view', function (req, res) {
             fileNames.add(i)
         }
     });
+    return fileNames;
 });
 
 

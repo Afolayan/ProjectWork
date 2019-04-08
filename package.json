@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "ar-drone": "^0.3.3",
+    "coap": "^0.23.1",
     "express": "^4.16.4",
     "ffmpeg": "0.0.4",
     "forever-monitor": "^1.7.1",
