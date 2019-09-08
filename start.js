@@ -4,6 +4,7 @@ const port = 3000
 const path = require("path");
 var arDrone = require('ar-drone');
 require('ffmpeg')
+//var client = arDrone.createClient();
 var client = arDrone.createClient();
 client.config("video:video_channel", 0);
 var pngStream = client.getPngStream();

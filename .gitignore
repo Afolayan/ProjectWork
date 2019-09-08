@@ -79,7 +79,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-/ardrone-wpa2
-/public
+
 /idea
 /idea/*
