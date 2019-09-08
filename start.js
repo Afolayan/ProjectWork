@@ -5,6 +5,7 @@ const path = require("path");
 var arDrone = require('ar-drone');
 require('ffmpeg')
 var client = arDrone.createClient();
+client.config("video:video_channel", 0);
 var pngStream = client.getPngStream();
 var fs = require('fs');
 const mongo = require('mongodb').MongoClient;
@@ -37,7 +38,8 @@ app.get('/', function (req, res) {
         }
         //...
       })
-    client.config('general:navdata_demo', 'TRUE');
+    //client.config('general:navdata_demo', 'TRUE');
+    client.config("general:navdata_demo", "FALSE");
     client.config('general:navdata_options', 777060865);
     client.on('navdata', function (navdata) {
     try {

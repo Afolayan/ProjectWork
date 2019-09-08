@@ -2,7 +2,7 @@ var arDrone = require('ar-drone');
 var client = arDrone.createClient();
 
 client.takeoff();
-
+client.on('navdata', console.log);
 client
     .after(5000, function () {
         this.clockwise(0.5);
