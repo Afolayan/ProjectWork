@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run",
-    "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "start": "node start.js",
+    "devstart": "nodemon start.js"
   },
   "author": "Jephthah Afolayan",
   "license": "ISC",
