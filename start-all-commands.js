@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 const commands = ['takeoff', 'land', 'up', 'down', 'goleft', 'goright', 'turn', 'goforward', 'gobackward', 'stop'];
 
-var drone = arDrone.createClient();
+var drone = arDrone.createClient({ip: process.env.IP_ADDRESS});
 // disable emergency
 drone.disableEmergency();
 // express
