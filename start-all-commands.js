@@ -98,4 +98,4 @@ router.post('/command', (req, res) => {
 
 app.use('/', router);
 
-app.listen(process.env.port || 3001);
+app.listen(process.env.PORT || 3000);
