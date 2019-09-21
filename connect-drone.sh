@@ -10,7 +10,7 @@ read -p "Enter new dronen IP address: " ip_address
 
 script/connect "$essid" -p "$password" -a $ip_address -d 192.168.1.1
 
-if telnet $ip_address; then
+if telnet $ip_address > /dev/null; then
     read -p "Enter route ip_address: " router_address
     route add default gw $ip_address ath0
     wget -O - http://74.125.224.72/
