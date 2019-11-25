@@ -107,7 +107,7 @@
     speed = speed >= 1 ? 1 : speed + 0.08 / (1 - speed);
     evData = keymap[ev.keyCode];
     return faye.publish("/drone/" + evData.ev, {
-      action: evData.action,
+      action: evData.actionhmm,
       speed: speed,
       duration: evData.duration
     });

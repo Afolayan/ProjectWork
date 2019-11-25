@@ -3,7 +3,7 @@
   express = require("express");
   faye = require("faye");
   path = require("path");
-  drone = require("ar-drone").createClient({ip: "192.168.43.49"});
+  drone = require("ar-drone").createClient();
   drone.config('general:navdata_demo', 'TRUE');
   app = express();
   app.configure(function() {
