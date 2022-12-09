@@ -19,7 +19,7 @@
     "ar-drone": "^0.3.3",
     "coap": "^0.23.1",
     "dotenv": "^8.1.0",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "ffmpeg": "0.0.4",
     "forever-monitor": "^1.7.1",
     "jquery": "^3.4.1",
